@@ -1,0 +1,97 @@
+@charset "UTF-8";
+html, body {
+  width: 100%;
+  height: 100%;
+  font-size: 100px;
+  font-family: "微软雅黑";
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
+  background: #f4f5f6; }
+
+#header {
+  width: 100%;
+  height: 70px;
+  background: #141414; }
+  #header .header {
+    width: 10rem;
+    height: 100%;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto; }
+    #header .header .logo {
+      display: flex;
+      display: -webkit-flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      font-size: 0.26rem;
+      font-weight: 500;
+      color: #fff;
+      white-space: nowrap; }
+      #header .header .logo img {
+        display: block;
+        width: 0.4rem;
+        height: 0.4rem; }
+      #header .header .logo span {
+        display: block;
+        height: 0.4rem;
+        margin-left: 0.16rem; }
+    #header .header ul.menu {
+      display: flex;
+      display: -webkit-flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+      margin-bottom: 0; }
+      #header .header ul.menu a {
+        display: block;
+        font-size: 0.18rem;
+        font-weight: 500;
+        color: #999;
+        margin-right: 0.3rem; }
+
+#container {
+  width: 100%;
+  height: 100%; }
+  #container article {
+    width: 9rem;
+    margin: 0 auto;
+    padding: 0.5rem;
+    margin-top: 0.2rem;
+    background: #fff; }
+    #container article h1 {
+      font-size: 0.18rem;
+      font-weight: 600;
+      color: #1A1A1A;
+      margin: 0;
+      margin-top: 0.3rem;
+      text-align: center; }
+    #container article h4 {
+      font-size: 0.18rem;
+      font-weight: 600;
+      color: #1A1A1A;
+      margin: 0;
+      margin-top: 0.3rem; }
+    #container article p {
+      font-size: 0.16rem;
+      font-weight: 500;
+      line-height: 0.26rem;
+      color: #333;
+      margin: 0;
+      margin-top: 0.3rem; }
+
+@media screen and (max-width: 1000px) {
+  #header .header {
+    width: 100%;
+    height: 0.7rem; } }
+@media screen and (max-width: 900px) {
+  #container article {
+    width: 100%; } }
+
+/*# sourceMappingURL=agreement.css.map */

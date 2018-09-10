@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+} 
+*:not(input,textarea) {
+  -webkit-touch-callout: inherit;
+  -webkit-user-select: auto;
+}
+body {
+  width: 100%;
+  font-family: Hiragino Sans GB, Arial, Helvetica, "黑体", sans-serif;
+  -webkit-touch-callout: inherit ;
+  -webkit-user-select: auto ;
+  background-color: #fff;
+  font-size:14px;
+  -webkit-font-smoothing: antialiased;
+}
+a {
+	color:rgba(0,0,0,1);
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+a:hover {
+  text-decoration: none;
+}
+button,input,select,textarea {
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  -webkit-tap-highlight-color:transparent;
+}
+dt,dd {
+  display: inline-block;
+}
+textarea,input {
+  resize: none;
+  outline: none;
+}
+textarea {
+  resize: none;
+  -webkit-appearance: none;
+}
+ul,ol,li {
+  list-style: none;
+}
+em {
+  font-style: normal;
+}
+a,input,em,h2,button{-webkit-tap-highlight-color:rgba(255,0,0,0);}
+/*# sourceMappingURL=reset.css.map */

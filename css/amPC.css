@@ -1,0 +1,61 @@
+@charset "UTF-8";
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: "微软雅黑";
+  /*  -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;*/
+  background: #f4f5f6; }
+
+.navbar {
+  heigth: 50px;
+  background: #141414; }
+
+.container-fluid {
+  background: #141414; }
+  .container-fluid .logo {
+    display: block;
+    width: 112px;
+    text-indent: 30px;
+    margin-left: 15px;
+    background: url(../img/logo_nav.png) no-repeat center center;
+    background-size: 112px 30px; }
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
+  color: white;
+  background: none; }
+
+#container {
+  width: 1000px;
+  margin: 0 auto;
+  padding: 2.5% 2.5% 0;
+  margin-top: 70px;
+  background: #fff;
+  /*h1{
+    margin:0;
+    @include font(20px,600,null,26px,#1a1a1a);
+    text-align:center;
+    margin-bottom:28px;
+  }
+  h2{
+    @extend h1;
+    text-align:left;
+  }
+  p{
+    margin:0;
+    @include font(16px,500,null,26px,#333);
+    text-indent:2em;
+    margin-bottom:28px;
+  }*/ }
+
+@media screen and (max-width: 1000px) {
+  .container-fluid {
+    width: 100% !important; }
+
+  #container {
+    width: 100%; } }
+
+/*# sourceMappingURL=amPC.css.map */

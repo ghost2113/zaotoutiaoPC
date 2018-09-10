@@ -1,0 +1,129 @@
+@charset "utf-8";
+@mixin prefixerKey($property, $value, $prefixes: webkit moz o ms) {
+  #{$property}: $value;
+
+  @each $prefix in $prefixes {
+    @if $prefix == webkit {
+      -webkit-#{$property}:#{$value};
+    }
+    @else if $prefix == moz {
+      -moz-#{$property}:#{$value};
+    }
+    @else if $prefix == o {
+      -o-#{$property}:#{$value};
+    }
+    @else if $prefix == ms {
+      -ms-#{$property}:#{$value};
+    }
+  }
+}
+@mixin prefixerValue($property, $value, $prefixes: webkit moz o ms) {
+  #{$property}: $value;
+
+  @each $prefix in $prefixes {
+    @if $prefix == webkit {
+      #{$property}:-webkit-#{$value};
+    }
+    @else if $prefix == moz {
+      #{$property}:-moz-#{$value};
+    }
+    @else if $prefix == o {
+      #{$property}:-o-#{$value};
+    }
+    @else if $prefix == ms {
+      #{$property}:-ms-#{$value};
+    }
+  }
+}
+//flex布局
+@mixin flex($direction,$justify:center,$alignItems:center){
+  display:flex;
+  display:-webkit-flex;
+  flex-direction:$direction;
+  justify-content: $justify;
+  align-items: $alignItems;
+}
+//字体样式
+@mixin font($size:14px,$weight:500,$family:"微软雅黑",$height:1.4,$color:#000){
+  font-size:$size;
+  font-weight:$weight;
+  font-family:$family;
+  line-height:$height;
+  color:$color;
+}
+//多行文本溢出
+@mixin overflow($num:1){
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $num;
+  overflow: hidden;
+}
+//元素水平居中
+@mixin centerRow{
+  margin:0 auto;
+}
+@mixin img100{
+  display:block;
+  width: 100%;
+  height:100%;
+}
+//主题黄色
+$fontColor:#f8e5a1;
+html,body{
+  width: 100%;
+  height: 100%;
+  font-family:"微软雅黑";
+  /*  -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;*/
+  background:#f4f5f6;
+}
+.navbar{
+  heigth:50px;
+  background:#141414;
+}
+.container-fluid{
+  background:#141414;
+  .logo{
+    display:block;
+    width:112px;
+    text-indent: 30px;
+    margin-left:15px;
+    background:url(../img/logo_nav.png) no-repeat center center;
+    background-size:112px 30px;
+  }
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {color:white;background:none;}
+#container {
+  width: 1000px;
+  margin:0 auto;
+  padding:2.5% 2.5% 0;
+  margin-top:70px;
+  background:#fff;
+  /*h1{
+    margin:0;
+    @include font(20px,600,null,26px,#1a1a1a);
+    text-align:center;
+    margin-bottom:28px;
+  }
+  h2{
+    @extend h1;
+    text-align:left;
+  }
+  p{
+    margin:0;
+    @include font(16px,500,null,26px,#333);
+    text-indent:2em;
+    margin-bottom:28px;
+  }*/
+}
+@media screen and (max-width:1000px){
+  .container-fluid{
+    width:100% !important;
+  }
+  #container{
+    width:100%;}
+}
+

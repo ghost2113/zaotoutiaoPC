@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>春风十里不如红包送你，下载抢先领取5元现金</title>
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/shareH5.css" />
+    <script src="js/swiper-4.2.0.min.js"></script>
+</head>
+<body>
+	<section id="main" style="opacity:0;-webkit-opacity: 0;">	
+		<div class="swiper-container">
+		    <div class="swiper-wrapper" id="notice">
+		        <div class="swiper-slide notice">
+		        	<div class="user">	
+		        		<img src="./img/shareUser.jpg" alt="" />
+					</div>
+					<div class="userName">手机用户01</div>
+					<div class="getMoney">微信提现<span>35</span>元</div> 
+					<div class="time"><span class="showTime">6秒</span>前</div>
+		        </div>
+		        <div class="swiper-slide notice">
+		        	<div class="user">	
+		        		<img src="./img/shareUser1.jpg" alt="" />
+					</div>
+					<div class="userName">曹振大大</div>
+					<div class="getMoney">微信提现<span>45</span>元</div> 
+					<div class="time"><span class="showTime">8秒</span>前</div>
+		        </div>
+		        <div class="swiper-slide notice">
+		        	<div class="user">	
+		        		<img src="./img/shareUser2.jpg" alt="" />
+					</div>
+					<div class="userName">qingqing</div>
+					<div class="getMoney">微信提现<span>50</span>元</div> 
+					<div class="time"><span class="showTime">34秒</span>前</div>
+		        </div>
+		        <div class="swiper-slide notice">
+		        	<div class="user">	
+		        		<img src="./img/shareUser3.jpg" alt="" />
+					</div>
+					<div class="userName">闫哥哥</div>
+					<div class="getMoney">微信提现<span>29</span>元</div> 
+					<div class="time"><span class="showTime">45秒</span>前</div>
+		        </div>
+		        <div class="swiper-slide notice">
+		        	<div class="user">	
+		        		<img src="./img/shareUser4.jpg" alt="" />
+					</div>
+					<div class="userName">隔壁老王</div>
+					<div class="getMoney">微信提现<span>78</span>元</div> 
+					<div class="time"><span class="showTime">23秒</span>前</div>
+		        </div>
+		        <div class="swiper-slide notice">
+		        	<div class="user">	
+		        		<img src="./img/shareUser5.jpg" alt="" />
+					</div>
+					<div class="userName">冰冰*_*</div>
+					<div class="getMoney">微信提现<span>125</span>元</div> 
+					<div class="time"><span class="showTime">5秒</span>前</div>
+		        </div>
+		        <div class="swiper-slide notice">
+		        	<div class="user">	
+		        		<img src="./img/shareUser6.jpg" alt="" />
+					</div>
+					<div class="userName">hahaha</div>
+					<div class="getMoney">微信提现<span>100</span>元</div> 
+					<div class="time"><span class="showTime">1秒</span>前</div>
+		        </div>
+		        <div class="swiper-slide notice">
+		        	<div class="user">	
+		        		<img src="./img/shareUser7.jpg" alt="" />
+					</div>
+					<div class="userName">这是个昵称</div>
+					<div class="getMoney">微信提现<span>100</span>元</div> 
+					<div class="time"><span class="showTime">1秒</span>前</div>
+		        </div>
+		    </div>
+		</div>
+		<div class="shareTit"><img src="./img/shareTit.png" alt="" /></div>
+		<div class="openPacket">
+			<div class="packetNum"></div>
+			<div class="prompt">
+				<p>春风十里不如红包送你</p>
+				<p>下载抢先领取5元现金</p>
+			</div>
+			<div id="dlApp" ></div>
+		</div>
+	</section>
+	<div class="mask" onclick="hideMask()">
+		<img src="./img/weixinOpenLJTX.png" alt="" onClick="return false"/>
+	</div>
+	<iframe name="iframe"  src="" frameborder="0" style="display:none"></iframe>
+</body>
+	<script>
+		window.onload=function(){
+			FastClick.attach(document.body);
+			/**
+			 * 轮播
+			 */
+			var mySwiper = new Swiper ('.swiper-container', {
+			    direction: 'vertical',
+			    loop: true,	
+			    speed:1000,
+			    autoplay:{
+			    	delay:2000
+			    },
+			})        
+			/**
+			 * 完美解决safari、微信浏览器下拉回弹效果和上拉空白的bug
+			 * @param {Object} el 滑动元素
+			 */
+			var overscroll = function(el) {  
+			    el.addEventListener('touchstart', function() {  
+			        var top = el.scrollTop  
+			        ,totalScroll = el.scrollHeight  
+			        ,currentScroll = top + el.offsetHeight;  
+			        if(top === 0) {  
+			            el.scrollTop = 1;  
+			        }else if(currentScroll === totalScroll) {  
+			            el.scrollTop = top - 1;  
+			        }  
+			    });  			  
+			    el.addEventListener('touchmove', function(evt) {  
+			    if(el.offsetHeight < el.scrollHeight)  
+			        evt._isScroller = true;  
+			    });  
+			}  			          
+			overscroll(document.querySelector('#main'));  
+			document.body.addEventListener('touchmove', function(evt) {  
+			    if(!evt._isScroller) {  
+			        evt.preventDefault();  
+			    }  
+			});  
+		}
+	</script>
+<script src="https://s22.cnzz.com/z_stat.php?id=1274474768&web_id=1274474768" language="JavaScript"></script>
+<script type="text/javascript" src="./js/rem.js"></script>
+<script type="text/javascript" src="./js/loading.js"></script>
+<script type="text/javascript" src="./js/zepto.js"></script>
+<script type="text/javascript" src="./js/fastclick.js"></script>
+<script>
+
+	/**
+	 * 隐藏站长统计
+	 */
+		$("a[title='站长统计']").hide();
+    var _czc = _czc || [];
+    _czc.push(["_setAccount", "1274474768"]);
+    _czc.push(["_trackEvent", "早头条PC扫码", "扫码打开", "早头条", 1, "download"]);
+	var weixin = is_weixn();//是否是微信
+	var u = navigator.userAgent;
+	var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+	var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+	     $("#dlApp").on("click",download);
+    if(isAndroid){
+    	if(weixin){
+    		//安卓微信打开，提示用浏览器打开
+    		console.log("安卓微信下载");
+    		$(".mask").show(); 
+    	}else{
+    		//安卓不是微信打开，自动下载
+    		console.log("安卓浏览器下载");
+    		window.location.href = "https://zhishun888.com/r/zaotoutiao.apk";
+    	}
+    }else if(isiOS){
+    	 if(weixin){
+    	 		console.log("ios微信下载");
+    	 		window.iframe.location.href = "https://itunes.apple.com/app/apple-store/id1403304341?pt=118950911&ct=linkedMe&mt=8";
+    	 }else{
+    	 		console.log("ios浏览器下载");
+    	 		window.location.href = "https://itunes.apple.com/app/apple-store/id1403304341?pt=118950911&ct=linkedMe&mt=8";
+    	 }
+    }	
+    function download(){
+            //下载事件
+            _czc.push(["_trackEvent", "pc落地页", "扫码点击下载", "早头条", 1, "download"]);
+            //解决ios 跳转appstore去除中间页		
+					if(isAndroid){
+	         	 if(weixin){
+	         	 	$(".mask").show();
+	         	 }else{
+	         	 	window.location.href = "https://zhishun888.com/r/zaotoutiao.apk";
+	         	 }
+	        }else if(isiOS){
+		        	//ios打开直接跳转appstore
+	        	   if(weixin){	        	   			        	   	
+								window.iframe.location.href = "https://itunes.apple.com/app/apple-store/id1403304341?pt=118950911&ct=linkedMe&mt=8";
+							}else{
+								window.location.href = "https://itunes.apple.com/app/apple-store/id1403304341?pt=118950911&ct=linkedMe&mt=8";
+							}
+					}			
+		}
+  function is_weixn(){  
+	    var ua = navigator.userAgent.toLowerCase();  
+	    if(ua.match(/MicroMessenger/i)=="micromessenger") {  
+	        return true;  
+	    } else {  
+	        return false;  
+	    }  
+	};
+			//关闭遮罩
+		function hideMask(){
+			$(".mask").hide();
+		}
+</script>
+</html>

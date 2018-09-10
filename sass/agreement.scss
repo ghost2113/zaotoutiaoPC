@@ -1,0 +1,157 @@
+@charset "utf-8";
+@mixin prefixerKey($property, $value, $prefixes: webkit moz o ms) {
+  #{$property}: $value;
+
+  @each $prefix in $prefixes {
+    @if $prefix == webkit {
+      -webkit-#{$property}:#{$value};
+    }
+    @else if $prefix == moz {
+      -moz-#{$property}:#{$value};
+    }
+    @else if $prefix == o {
+      -o-#{$property}:#{$value};
+    }
+    @else if $prefix == ms {
+      -ms-#{$property}:#{$value};
+    }
+  }
+}
+@mixin prefixerValue($property, $value, $prefixes: webkit moz o ms) {
+  #{$property}: $value;
+
+  @each $prefix in $prefixes {
+    @if $prefix == webkit {
+      #{$property}:-webkit-#{$value};
+    }
+    @else if $prefix == moz {
+      #{$property}:-moz-#{$value};
+    }
+    @else if $prefix == o {
+      #{$property}:-o-#{$value};
+    }
+    @else if $prefix == ms {
+      #{$property}:-ms-#{$value};
+    }
+  }
+}
+//flex布局
+@mixin flex($direction,$justify:center,$alignItems:center){
+  display:flex;
+  display:-webkit-flex;
+  flex-direction:$direction;
+  justify-content: $justify;
+  align-items: $alignItems;
+}
+//字体样式
+@mixin font($size:14px,$weight:500,$family:"微软雅黑",$height:1.4,$color:#000){
+  font-size:$size;
+  font-weight:$weight;
+  font-family:$family;
+  line-height:$height;
+  color:$color;
+}
+//多行文本溢出
+@mixin overflow($num:1){
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $num;
+  overflow: hidden;
+}
+//元素水平居中
+@mixin centerRow{
+  margin:0 auto;
+}
+@mixin img100{
+  display:block;
+  width: 100%;
+  height:100%;
+}
+//主题黄色
+$fontColor:#f8e5a1;
+html,body{
+  width: 100%;
+  height: 100%;
+  font-size:100px;
+  font-family:"微软雅黑";
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
+  background:#f4f5f6;
+}
+#header{
+  width: 100%;
+  height: 70px;
+  background:#141414;
+  .header{
+    width:10rem;
+    height:100%;
+    @include flex(row,space-between,center);
+    margin:0 auto;
+    .logo{
+      @include flex(row,flex-start,center);
+      @include font(0.26rem,500,null,null,#fff);
+      white-space: nowrap;
+      img{
+        display:block;
+        width:0.4rem;
+        height:0.4rem;
+      }
+      span{
+        display:block;
+        height:0.4rem;
+        margin-left:0.16rem;
+      }
+    }
+    ul.menu{
+      @include flex(row,flex-end,center);
+      margin-bottom:0;
+      a{
+        display:block;
+        @include font(0.18rem,500,null,null,#999);
+        margin-right:0.3rem;
+      }
+    }
+  }
+}
+#container {
+  width: 100%;
+  height: 100%;
+  article{
+    width:9rem;
+    margin:0 auto;
+    padding:0.5rem;
+    margin-top:0.2rem;
+    background:#fff;
+    h1{
+      @include font(0.18rem,600,null,null,#1A1A1A);
+      margin:0;
+      margin-top:0.3rem;
+      text-align:center;
+    }
+    h4{
+      @include font(0.18rem,600,null,null,#1A1A1A);
+      margin:0;
+      margin-top:0.3rem;
+    }
+    p{
+      @include font(0.16rem,500,null,0.26rem,#333);
+      margin:0;
+      margin-top:0.3rem;
+    }
+  }
+}
+@media screen and (max-width:1000px) {
+  #header .header{
+    width:100%;
+    height:0.7rem;
+  }
+}
+@media screen and (max-width:900px) {
+  #container article{
+    width:100%;
+  }
+}
+

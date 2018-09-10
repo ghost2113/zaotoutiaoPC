@@ -1,0 +1,384 @@
+@charset "utf-8";
+@mixin prefixerKey($property, $value, $prefixes: webkit moz o ms) {
+  #{$property}: $value;
+
+  @each $prefix in $prefixes {
+    @if $prefix == webkit {
+      -webkit-#{$property}:#{$value};
+    }
+    @else if $prefix == moz {
+      -moz-#{$property}:#{$value};
+    }
+    @else if $prefix == o {
+      -o-#{$property}:#{$value};
+    }
+    @else if $prefix == ms {
+      -ms-#{$property}:#{$value};
+    }
+  }
+}
+@mixin prefixerValue($property, $value, $prefixes: webkit moz o ms) {
+  #{$property}: $value;
+
+  @each $prefix in $prefixes {
+    @if $prefix == webkit {
+      #{$property}:-webkit-#{$value};
+    }
+    @else if $prefix == moz {
+      #{$property}:-moz-#{$value};
+    }
+    @else if $prefix == o {
+      #{$property}:-o-#{$value};
+    }
+    @else if $prefix == ms {
+      #{$property}:-ms-#{$value};
+    }
+  }
+}
+//flex布局
+@mixin flex($direction,$justify:center,$alignItems:center){
+  display:flex;
+  display:-webkit-flex;
+  flex-direction:$direction;
+  justify-content: $justify;
+  align-items: $alignItems;
+}
+//字体样式
+@mixin font($size:14px,$weight:500,$family:"微软雅黑",$height:1.4,$color:#000){
+  font-size:$size;
+  font-weight:$weight;
+  font-family:$family;
+  line-height:$height;
+  color:$color;
+}
+//多行文本溢出
+@mixin overflow($num:1){
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $num;
+  overflow: hidden;
+}
+//元素水平居中
+@mixin centerRow{
+  margin:0 auto;
+}
+@mixin img100{
+  display:block;
+  width: 100%;
+  height:100%;
+}
+//主题黄色
+$fontColor:#f8e5a1;
+html,body{
+  width: 100%;
+  height: 100%;
+  font-family:"微软雅黑";
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
+  //侧边导航
+  .nav{
+    position:fixed;
+    right:0;
+    top:0;
+    width:1rem;
+    height:100%;
+    @include flex(column,center,center);
+    .nav_item{
+      width:16px;
+      height:16px;
+      margin:0.2rem 0;
+      border:1px solid white;
+      border-radius:20px;
+    }
+    .active{
+      background:white;
+    }
+  }
+}
+#container{
+  width: 100%;
+  height:100%;
+
+  .page1,.page2,.page3,.page4,.page5{
+    width: 100%;
+    height:100%;
+    background-size:100% auto;
+    @include flex(column,center,center);
+  }
+  .page1{
+    @include flex(column,center,center);
+    width:100%;
+    height:100%;
+    background:url(../img/page1.jpg) no-repeat center center;
+    background-size:cover;
+    .wrap{
+      width:12rem;
+      margin:0 auto;
+      .boxR{
+        float:right;
+        @include flex(column,center,center);
+        width:30%;
+        height:100%;
+      }
+      .logo{
+        width:2.05rem;
+        height:2.05rem;
+        background:url(../img/LOGO.png) no-repeat center center;
+        background-size:100% auto;
+      }
+      .h1{
+        @include font(0.8rem,bold,null,1,#1A1A1A);
+        margin-top:0.9rem;
+        white-space: nowrap;
+      }
+      p{
+        @include font(0.46rem,500,null,1,#292929);
+        margin-top:0.3rem;
+        white-space: nowrap;
+      }
+      .code{
+        width:2.05rem;
+        height:2.056rem;
+        background:url(../img/code.png) no-repeat center center;
+        background-size:100% auto;
+        margin-top:0.5rem;
+      }
+      .text{
+        @include font(0.23rem,500,null,1,#1A1A1A);
+        margin-top:0.2rem;
+        white-space: nowrap;
+      }
+    }
+  }
+  .page2{
+    background:url(../img/page2.jpg) no-repeat center center;
+    background-size:cover;
+    .wrap {
+      width: 12rem;
+      margin: 0 auto;
+      @include flex(column,center,center);
+      h1{
+        @include font(0.68rem,500,null,1,#fff);
+        margin-top:2rem;
+        margin-bottom:0.46rem;
+      }
+      p{
+        text-indent: 2em;
+        @include font(0.3rem,400,null,46px,#fff);
+      }
+      a{
+        display:block;
+        width:3.2rem;
+        height:1rem;
+        background:transparent;
+        border-radius:100px;
+        border:2px solid #fff;
+        @include font(0.36rem,500,null,1rem,#fff);
+        vertical-align: middle;
+        margin-top:2rem;
+        text-align:center;
+      }
+    }
+  }
+  .page3{
+    background:url(../img/page3.jpg) no-repeat center center;
+    background-size:cover;
+    @include flex(row,center,center);
+    .wrap{
+      width:14.4rem;
+      margin:0 auto;
+      @include flex(row,center,center);
+      .boxL{
+        @include flex(column,center,center);
+        width:50%;
+        height:100%;
+        .imgBox{
+          position:relative;
+          width: 4.2rem;
+          height:7.4rem;
+          background:url(../img/3-1.png) no-repeat center center;
+          background-size:100% auto;
+          .imgBox2{
+            position:absolute;
+            left:-0.32rem;
+            right:0;
+            bottom:1.1rem;
+            width: 4.8rem;
+            height:2.69rem;
+            background:url(../img/3-2.png) no-repeat center center;
+            background-size:125% auto;
+          }
+        }
+      }
+      }
+      .boxR{
+        width:50%;
+        height:100%;
+        h1{
+          @include font(0.68rem,600,null,1.1rem,#fff);
+          white-space: nowrap;
+        }
+        p{
+          @include font(0.3rem,400,null,0.46rem,#fff);
+          white-space: nowrap;
+        }
+      }
+  }
+  .page4{
+    background:url(../img/page4.jpg) no-repeat center center;
+    background-size:cover;
+    @include flex(row,center,center);
+    .wrap{
+      width:12rem;
+      margin:0 auto;
+      @include flex(row,center,center);
+      .boxR{
+        @include flex(column,center,center);
+        width:50%;
+        height:100%;
+        .imgBox{
+          position:relative;
+          width: 4.2rem;
+          height:7.4rem;
+          background:url(../img/4-2.png) no-repeat center center;
+          background-size:100% auto;
+          .imgBox2{
+            position:absolute;
+            left:1.48rem;
+            top:0.8rem;
+            width: 4.2rem;
+            height:7.4rem;
+            background:url(../img/4-1.png) no-repeat center center;
+            background-size:125% auto;
+           /* box-shadow: 0 0 10px 5px rgba(0,0,0,0.1);*/
+          }
+        }
+      }
+    }
+    .boxL{
+      width:50%;
+      height:100%;
+      h1{
+        @include font(0.68rem,600,null,1.1rem,#fff);
+        white-space: nowrap;
+      }
+      p{
+        @include font(0.3rem,400,null,0.46rem,#fff);
+        white-space: nowrap;
+      }
+    }
+  }
+  .page5{
+    background:url(../img/5.jpg) no-repeat center center;
+    background-size:cover;
+    @include flex(row,center,center);
+    .wrap{
+      width:14.4rem;
+      margin:0 auto;
+      @include flex(row,center,center);
+      .boxL{
+        @include flex(column,center,center);
+        width:50%;
+        height:100%;
+        .imgBox{
+          position:relative;
+          width: 4.2rem;
+          height:7.4rem;
+          background:url(../img/5-1.png) no-repeat center center;
+          background-size:100% auto;
+/*          .imgBox2{
+            position:absolute;
+            left:-0.32rem;
+            right:0;
+            bottom:1.1rem;
+            width: 4.8rem;
+            height:2.69rem;
+            background:url(../img/3-2.png) no-repeat center center;
+            background-size:125% auto;
+          }*/
+        }
+      }
+    }
+    .boxR{
+      width:50%;
+      height:100%;
+      h1{
+        @include font(0.68rem,600,null,1.1rem,#fff);
+        white-space: nowrap;
+      }
+      p{
+        @include font(0.3rem,400,null,0.46rem,#fff);
+        white-space: nowrap;
+      }
+    }
+  }
+  .footer{
+    width:100%;
+    height:1.1rem;
+    @include flex(column,center,center);
+    @include font(16px,400,null,0.32rem,#4D4D4D);
+    .link{
+      @include flex(row,center,center);
+      a{
+        display:block;
+        color:#4d4d4d;
+      }
+      span{
+        display:block;
+        width:1px;
+        height:16px;
+        background:#4d4d4d;
+        margin:0 10px;
+      }
+    }
+    p{
+      margin:0;
+    }
+  }
+}
+/*@media screen and (max-width: 1200px){
+  body #container{
+    width:1200px;
+    height:973px;
+  }
+  #container .page1 .wrap,#container .page2 .wrap,#container .page3 .wrap,#container .page4 .wrap{
+    width: 1200px;
+    height:100%;
+  }
+}*/
+@media screen and (min-width:1920px) {
+  html,body{
+    font-size:100px;
+  }
+}
+@media screen and (min-width:1440px) and (max-width:1920px) {
+  html,body{
+    font-size:86px;
+  }
+}
+@media screen and (min-width:1280px) and (max-width:1440px) {
+  html,body{
+    font-size:75px;
+  }
+}
+@media screen and (min-width:1080px) and (max-width:1280px) {
+  html,body{
+    font-size:58px;
+  }
+}
+@media screen and (max-width:1080px) {
+  #container{
+    width:1080px;
+  }
+  html,body{
+    font-size:58px;
+  }
+}
+@media screen and (max-height:750px) {
+  #container{
+    min-height:750px;
+  }
+}

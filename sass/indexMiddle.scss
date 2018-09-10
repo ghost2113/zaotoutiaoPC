@@ -1,0 +1,334 @@
+@charset "utf-8";
+@mixin prefixerKey($property, $value, $prefixes: webkit moz o ms) {
+  #{$property}: $value;
+
+  @each $prefix in $prefixes {
+    @if $prefix == webkit {
+      -webkit-#{$property}:#{$value};
+    }
+    @else if $prefix == moz {
+      -moz-#{$property}:#{$value};
+    }
+    @else if $prefix == o {
+      -o-#{$property}:#{$value};
+    }
+    @else if $prefix == ms {
+      -ms-#{$property}:#{$value};
+    }
+  }
+}
+@mixin prefixerValue($property, $value, $prefixes: webkit moz o ms) {
+  #{$property}: $value;
+
+  @each $prefix in $prefixes {
+    @if $prefix == webkit {
+      #{$property}:-webkit-#{$value};
+    }
+    @else if $prefix == moz {
+      #{$property}:-moz-#{$value};
+    }
+    @else if $prefix == o {
+      #{$property}:-o-#{$value};
+    }
+    @else if $prefix == ms {
+      #{$property}:-ms-#{$value};
+    }
+  }
+}
+//flex布局
+@mixin flex($direction,$justify:center,$alignItems:center){
+  display:flex;
+  display:-webkit-flex;
+  flex-direction:$direction;
+  justify-content: $justify;
+  align-items: $alignItems;
+}
+//字体样式
+@mixin font($size:14px,$weight:500,$family:"微软雅黑",$height:1.4,$color:#000){
+  font-size:$size;
+  font-weight:$weight;
+  font-family:$family;
+  line-height:$height;
+  color:$color;
+}
+//多行文本溢出
+@mixin overflow($num:1){
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $num;
+  overflow: hidden;
+}
+//元素水平居中
+@mixin centerRow{
+  margin:0 auto;
+}
+@mixin img100{
+  display:block;
+  width: 100%;
+  height:100%;
+}
+//主题黄色
+$fontColor:#f8e5a1;
+html,body{
+  width: 100%;
+  height: 100%;
+  font-family:"微软雅黑";
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
+}
+#container{
+  width: 100%;
+  height:100%;
+  .page1,.page2,.page3,.page4,.page5{
+    position:relative;
+    width: 100%;
+    height:100%;
+    background-size:100% auto;
+    @include flex(column,center,center);
+    .download{
+      position:absolute;
+      left:0;
+      bottom:0.3rem;
+      right:0;
+      margin:0 auto;
+      display:block;
+      width:2.3rem;
+      height:0.4rem;
+      border-radius:50px;
+      background:#fc3838;
+      @include font(0.13rem,600,null,0.4rem,#fff);
+      text-align:center;
+    }
+  }
+  .page1{
+    @include flex(column,center,center);
+    width:100%;
+    height:100%;
+    background:url(../img/page1.jpg) no-repeat center center;
+    background-size:cover;
+    .wrap{
+      width:100%;
+      margin:0 auto;
+      .boxR{
+        width:100%;
+        height:100%;
+        @include flex(column,center,center);
+        .logo{
+          width:0.9rem;
+          height:0.9rem;
+          background:url(../img/LOGO.png) no-repeat center center;
+          background-size:100% auto;
+        }
+        .h1{
+          @include font(0.35rem,bold,null,1,white);
+          margin-top:0.35rem;
+          white-space: nowrap;
+        }
+        p{
+          @include font(0.2rem,500,null,1,white);
+          margin-top:0.2rem;
+          white-space: nowrap;
+        }
+        .code{
+          width:2.05rem;
+          height:2.056rem;
+          background:url(../img/code.png) no-repeat center center;
+          background-size:100% auto;
+          margin-top:0.5rem;
+        }
+        .text{
+          @include font(0.23rem,500,null,1,#1A1A1A);
+          margin-top:0.2rem;
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+  .page2{
+    @include flex(column,flex-start,center);
+    position:relative;
+    background:url(../img/page2.jpg) no-repeat center center;
+    background-size:cover;
+    .wrap {
+      width: 86%;
+      margin: 0 auto;
+      padding:0 7%;
+      @include flex(column,flex-start,center);
+      h1{
+        @include font(0.3rem,600,null,1.4,#fff);
+        margin-top:1.5rem;
+        margin-bottom:0.46rem;
+      }
+      p{
+        text-indent: 2em;
+        @include font(0.15rem,500,null,2,#fff);
+      }
+      a{
+        display:block;
+        width:3.2rem;
+        height:1rem;
+        background:transparent;
+        border-radius:100px;
+        border:2px solid #fff;
+        @include font(0.36rem,500,null,1rem,#fff);
+        vertical-align: middle;
+        margin-top:1.5rem;
+        text-align:center;
+      }
+    }
+  }
+  .page3{
+    display:block;
+    background:url(../img/page3.jpg) no-repeat center center;
+    background-size:cover;
+    .wrap{
+      width:100%;
+      margin:0 auto;
+      @include flex(column,flex-start,center);
+      .boxR{
+        @include flex(column,center,center);
+        width:100%;
+        height:100%;
+        margin-top:0.32rem;
+        .imgBox{
+          position:relative;
+          width:1.85rem;
+          height:3.3rem;
+          background:url(../img/3-1.png) no-repeat center center;
+          background-size:100% auto;
+          .imgBox2{
+            position:absolute;
+            left:-0.15rem;
+            right:0;
+            bottom:0.5rem;
+            margin:0 auto;
+            width: 2.15rem;
+            height:1.2rem;
+            background:url(../img/3-2.png) no-repeat center center;
+            background-size:125% auto;
+          }
+        }
+      }
+    }
+    .boxL{
+      width:100%;
+      height:100%;
+      margin-top:0.85rem;
+      h1{
+        @include font(0.28rem,600,null,1.4,#fff);
+        white-space: nowrap;
+        text-align:center;
+      }
+      p{
+        @include font(0.15rem,400,null,2,#fff);
+        white-space: nowrap;
+        text-align:center;
+      }
+    }
+  }
+  .page4{
+    background:url(../img/page4.jpg) no-repeat center center;
+    background-size:cover;
+    @include flex(column,flex-start,center);
+    .boxL{
+      width:100%;
+      margin-top:0.85rem;
+      h1{
+        @include font(0.28rem,600,null,1.4,#fff);
+        white-space: nowrap;
+        text-align:center;
+      }
+      p{
+        @include font(0.15rem,400,null,2,#fff);
+        white-space: nowrap;
+        text-align:center;
+      }
+    }
+    .wrap{
+      width:1.65rem;
+      margin:0 auto;
+      .boxR{
+        position:relative;
+        width:100%;
+        height:100%;
+        .imgBox{
+          margin-left:-0.3rem;
+          width: 1.65rem;
+          height:2.95rem;
+          background:url(../img/4-2.png) no-repeat center center;
+          background-size:100% auto;
+        }
+        .imgBox2{
+          position:absolute;
+          left:0.3rem;
+          top:0.6rem;
+          width: 1.65rem;
+          height:2.95rem;
+          background:url(../img/4-1.png) no-repeat center center;
+          background-size:120% auto;
+        }
+      }
+    }
+  }
+  .page5{
+    background:url(../img/5.jpg) no-repeat center center;
+    background-size:cover;
+    @include flex(column,flex-start,center);
+    .wrap{
+      width:100%;
+      margin:0 auto;
+      @include flex(column,center,center);
+      .boxL{
+        @include flex(column,center,center);
+        width:100%;
+        height:100%;
+        margin-top:0.2rem;
+        .imgBox{
+          position:relative;
+          width: 1.9rem;
+          height:3.35rem;
+          background:url(../img/5-1.png) no-repeat center center;
+          background-size:110% auto;
+        }
+      }
+    }
+    .boxR{
+      width:100%;
+      height:100%;
+      margin-top:0.85rem;
+      h1{
+        @include font(0.28rem,600,null,1.4,#fff);
+        white-space: nowrap;
+        text-align:center;
+      }
+      p{
+        @include font(0.15rem,400,null,2,#fff);
+        white-space: nowrap;
+        text-align:center;
+      }
+    }
+  }
+  .footer{
+    width:100%;
+    height:0.6rem;
+    @include flex(column,center,center);
+    @include font(14px,400,null,1.4,#4D4D4D);
+    .link{
+      @include flex(row,center,center);
+      a{
+        display:block;
+        color:#4d4d4d;
+      }
+      span{
+        display:black;
+        width:1px;
+        height:16px;
+        background:#4d4d4d;
+        margin:0 10px;
+      }
+    }
+  }
+}

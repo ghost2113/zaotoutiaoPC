@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    <meta name="keywords" content="早头条 下载 看新闻赚钱" />
+    <meta name="description" content="7×24小时不间断更新，为你带来新闻现场一手资讯；重大、突发新闻推送，30秒到你手中" />
+    <title>早头条</title>
+    <link rel="shortcut icon" href="./img/favicon.ico"/>
+    <link rel="bookmark" href="./img/favicon.ico"/>
+    <link rel="stylesheet" href="./css/animate.css" >
+    <link rel="stylesheet" href="./css/reset.css" >
+    <link rel="stylesheet" href="./css/indexMiddle.css" >
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script src="./js/wow.min.js"></script>
+</head>
+<body>
+<section id="container">
+    <div class="page1">
+        <div class="wrap">
+            <div class="boxR">
+                <div class="logo"></div>
+                <h1 class="h1">早头条</h1>
+                <p class="wow">给我一分钟 开心一整天</p>
+                <!-- <div class="code"></div>
+                 <div class="text">扫描二维码下载APP</div>-->
+
+            </div>
+        </div>
+        <a class="download" href="https://zhishun520.com/app-debug.apk">下载APP</a>
+    </div>
+    <div class="page2">
+        <div class="wrap">
+            <h1 class="wow flipInX" data-wow-duration="3s">早头条是什么？</h1>
+            <p class="wow flipInX" data-wow-duration="3s" data-wow-delay="0.4s">杭州智顺文化传播有限公司，将于近期推出“早头条”APP，通过不断分析用户行为，优化改良推荐算法，为用户提供更个性化内容及服务；公司致力于让用户在沉浸阅读的同时将自己的注意力价值变现。
+            </p>
+            <p class="wow flipInX" data-wow-duration="3s" data-wow-delay="0.8s">特色的用户运营，依靠大数据和云计算的数据支撑，深度挖掘用户兴趣点。独特的定位和差异化运营，将使我们在未来走的更远。</p>
+            <!-- <a class="wow bounceIn" data-wow-duration="2s" data-wow-delay="1s" href="https://zhishun520.com/app-debug.apk" >下载APP</a>-->
+        </div>
+        <!--<div class="wow slideInLeft" data-wow-duration="2s" data-wow-delay="1s" style="width:200px;height:200px;background:white;"></div>
+        <div class="wow slideInRight" data-wow-duration="2s" data-wow-delay="1s"  data-wow-iteration="2"  style="width:200px;height:200px;background:black;"></div>-->
+        <a class="download" href="https://zhishun520.com/app-debug.apk">下载APP</a>
+    </div>
+    <div class="page3">
+        <div class="wrap">
+            <div  class="boxL">
+                <h1>资讯视频 一览无余</h1>
+                <p>随时随地 尽情观看</p>
+            </div>
+            <div class="boxR">
+                <div class="imgBox wow myBounceInDown" data-wow-duration="2s" >
+                    <div  class="imgBox2 wow myBounceInUp" data-wow-duration="2s"></div>
+                </div>
+            </div>
+        </div>
+        <a class="download" href="https://zhishun520.com/app-debug.apk">下载APP</a>
+    </div>
+    <div class="page4">
+        <div class="boxL">
+            <h1>早点新闻 随手掌握</h1>
+            <p>不再担心错过任何热点</p>
+        </div>
+        <div class="wrap">
+
+            <div class="boxR">
+                <div class="imgBox wow myBounceInDown" data-wow-duration="2s">
+
+                </div>
+                <div class="imgBox2 wow myBounceInUp" data-wow-duration="2s"></div>
+            </div>
+        </div>
+        <a class="download" href="https://zhishun520.com/app-debug.apk">下载APP</a>
+    </div>
+    <div class="page5">
+        <div class="wrap">
+            <div class="boxR">
+                <h1>看新闻赚钱</h1>
+                <p>轻松做任务赚钱</p>
+            </div>
+            <div class="boxL">
+                <div class="imgBox wow myTada" data-wow-duration="3s" data-wow-iteration-count="infinte">
+
+                </div>
+            </div>
+        </div>
+        <a class="download" href="https://zhishun520.com/app-debug.apk">下载APP</a>
+    </div>
+    <div class="footer">
+        <div class="link">
+            <a href="./link.html">联系我们</a>
+            <span></span>
+            <a href="./amPC.html">用户协议</a>
+            <span></span>
+            <a href="http://zhishun520.com/zaotoutiao/index.html">电脑板</a>
+        </div>
+        <p>浙ICP备18011513号-1</p>
+    </div>
+</section>
+<script type="text/javascript">
+    (function(doc, win) {
+        var docEl = doc.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function() {
+                var clientWidth = docEl.clientWidth;
+                if(!clientWidth) return;
+                if(clientWidth >= 640) {
+                    docEl.style.fontSize = '100px';
+                    /*docEl.style.fontSize = 100 * (clientWidth / 1920) + 'px';*/
+                }else{
+                    docEl.style.fontSize = 100 * (clientWidth / 375) + 'px';
+                }
+            };
+        if(!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+</script>
+<script type="text/javascript">
+    var wow = new WOW({
+        boxClass: 'wow',
+        animateClass: 'animated',
+        offset: 100,
+        mobile: true,
+        live: true
+    });
+    wow.init();
+    /**
+     * 检测移动端还是PC端
+     */
+    function browserRedirect() {
+        var sUserAgent = navigator.userAgent.toLowerCase();
+        var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+        var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+        var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+        var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+        var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+        var bIsAndroid = sUserAgent.match(/android/i) == "android";
+        var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+        var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+        if (!(bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) ){
+            window.location.href="https://zhishun520.com/zaotoutiao/index.html";
+        }else{
+            console.log("运行于移动端");
+            /* window.location.href="https://zhishun520.com/toutiaoTV/indexMiddle.html";*/
+        }
+    }
+    browserRedirect();
+</script>
+</body>
+</html>

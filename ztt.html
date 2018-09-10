@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+		<meta name="keywords" content="早头条 下载 看新闻赚钱" />
+		<meta name="description" content="7×24小时不间断更新，为你带来新闻现场一手资讯；重大、突发新闻推送，30秒到你手中" />
+		<title>早头条</title>
+		<link rel="shortcut icon" href="./img/favicon.ico" />
+		<link rel="bookmark" href="./img/favicon.ico" />
+		<link rel="stylesheet" href="static/drop/dropload.css" />
+		<link rel="stylesheet" href="./static/layui/css/layui.css">
+		<link rel="stylesheet" href="./css/ztt.css">
+	</head>
+
+	<body>
+		<!--主体-->
+		<div id="mian">
+			<div class="container">
+				<!--左侧-->
+				<div class="left">
+					<div>
+						<ul class="newsKind">
+							<div class="getVideo">短视频</div>
+						</ul>
+					</div>
+				</div>
+				<!--新闻列表-->
+				<div class="newsWrap">
+					<!--视频-->
+					<div id="video">
+						<div class="updataV">为你推荐了10个视频</div>
+						<!--头部置顶-->
+						<div class="topVideo"></div>
+						<!--<div class="locationV" style="display:none;">刚刚播放到这里&nbsp;点击刷新<i class="iconfont">&#xe649;</i></div>-->
+						<div class="videoList">
+						</div>
+						<!--正在加载-->
+						<div class="dropload">
+							<div class="spinner">
+								<div class="bounce1"></div>
+								<div class="bounce2"></div>
+								<div class="bounce3"></div>正在加载
+							</div>
+						</div>
+
+					</div>
+					<!--新闻-->
+					<div id="news">
+						<!--轮播图-->
+						<div class="layui-carousel" id="banner" style="display:none;">
+							<div carousel-item id="bannerC">
+								<div>
+									<a href="#">
+										<img src="img/3-1.png" alt="" />
+										<div style="height:200px;"></div>
+										<p class="page1">MH370调查报告公布：无法确认客机失联原因
+										</p>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="updata">为你推荐了10篇文章</div>
+						<!--头部置顶-->
+						<ul class="hotList">
+						</ul>
+						<div class="location" style="display:none;">刚刚看到这里&nbsp;点击刷新<i class="iconfont">&#xe649;</i></div>
+						<!--新闻列表-->
+						<ul class="newsList" id="newsScroll">
+						</ul>
+						<!--正在加载-->
+						<div class="dropload">
+							<div class="spinner">
+								<div class="bounce1"></div>
+								<div class="bounce2"></div>
+								<div class="bounce3"></div>正在加载
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<!--右侧-->
+				<div class="right">
+					<div class="fixR">
+						<div class="rank">
+							<div class="rank_border">
+								<div class="rank_title">热门排行</div>
+							</div>
+							<ul class="rank_newsList">
+								
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--遮罩层-->
+		<div id="mask">
+			<div class="container">
+				<div class="content content1" onclick="mask(2)">
+					<img class="img" src="img/zttPacked5.png" alt="" />
+
+				</div>
+				<div class="content content2" onclick="maskHide()">
+					<img class="img" src="img/zttQrcode.png" alt="" />
+					<div class="btn"></div>
+				</div>
+			</div>
+		</div>
+		<script src="./static/layui/layui.js" charset="utf-8" type="text/javascript"></script>
+		<script src="./js/jquery-1.9.1.min.js" charset="utf-8" type="text/javascript"></script>
+		<script src="./js/comment.js" charset="utf-8" type="text/javascript"></script>
+		<script src="./static/drop/dropload.js" charset="utf-8" type="text/javascript"></script>
+		<script src="./js/ztt.js" charset="utf-8" type="text/javascript"></script>
+		<script src="https://s13.cnzz.com/z_stat.php?id=1274473572&web_id=1274473572" language="JavaScript"></script>
+		<script type="text/javascript" language="JavaScript">
+			/**
+			 * 隐藏站长统计
+			 */
+			$("a[title='站长统计']").hide();
+			var _czc = _czc || [];
+			_czc.push(["_setAccount", "1274473572"]);
+			_czc.push(["_trackPageview", "zaotoutiao/ztt.html", "https://zhishun888.com/"]);
+			//下载事件
+			_czc.push(["_trackEvent", "早头条PC投放页", "打开", "早头条", 1, "download"]);
+		</script>
+	</body>
+
+</html>

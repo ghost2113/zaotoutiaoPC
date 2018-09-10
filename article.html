@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+	<meta name="keywords" content="早头条 下载 看新闻赚钱" />
+	<meta name="description" content="7×24小时不间断更新，为你带来新闻现场一手资讯；重大、突发新闻推送，30秒到你手中" />
+	<title>早头条</title>
+  <link rel="shortcut icon" href="./img/favicon.ico"/>
+  <link rel="bookmark" href="./img/favicon.ico"/>
+  <link rel="stylesheet" href="static/drop/dropload.css" />
+  <link rel="stylesheet" href="./static/layui/css/layui.css">
+  <link rel="stylesheet" href="./css/article.css">
+</head>
+<body>
+	<!--头部-->
+	<section  id="header">
+			<ul class="layui-nav">
+				<li class="layui-nav-item">
+					    <a href="">下载APP</a>
+					    <dl class="layui-nav-child">
+					      <img class="code" src="img/code.png" alt="" />
+					    </dl>
+			  </li>			  
+			  <li class="layui-nav-item">
+			  			<a class="weather" href="#">
+
+			  			</a>
+					    <dl class="layui-nav-child" style="width:140px;height:160px;overflow:hidden;">
+					    	<iframe allowtransparency="true" frameborder="0" width="140" height="278" scrolling="no" src="//tianqi.eastday.com/plugin/widget_v1.html?sc=2&z=3&t=1&v=1&d=3&bd=0&k=&f=&q=1&a=1&c=54511&w=140&h=278&align=center" style="transform: translateY(-120px);"></iframe>
+					    </dl>
+			  </li>		  
+			</ul>
+	</section>
+	<!--右侧-->
+	<div class="sideBar">
+				<section class="right">
+						<!--<div class="r r1"><img src="./img/activity1.png" alt="" /></div>
+						<div class="r r1"><img src="./img/activity1.png" alt="" /></div>
+						<div class="r r1"><img src="./img/activity1.png" alt="" /></div>
+						<div class="r r1"><img src="./img/activity1.png" alt="" /></div>-->
+				</section>
+	</div>	
+	<!--面包屑-->
+	<div class="navContainer"> 		
+		<div class="nav">
+			<a class="logo" href="./home.html"></a>
+			<span class="layui-breadcrumb">
+			  <a href="./home.html">首页</a>
+			  <a href="./home.html" class="newsKind">推荐</a>
+			  <a style="color:#000;font-weight:600;"><cite>正文</cite></a>
+			</span>
+		</div>		
+	</div>
+	<!--遮掩iframe滚动条-->
+<div style="z-index:1;position:fixed;right:0;top:0;width:25px;height:100%;background:#fff;"></div>
+	<!--主体-->
+	<iframe src='' width='100%' height='100%'  marginWidth=0 marginHeight=0 frameborder='0' name="_blank" id="article"></iframe>
+<!--遮罩层-->
+<div id="mask" onclick="maskHide()">
+		<div class="container">
+			 <div class="content content1">
+			 		<img class="img" src="img/readGold.png" alt="" />
+			 		<div class="close" onclick="mask(2)"></div>
+			 	  <!--<div class="btn" onclick="mask(2)"></div>-->
+			 </div>
+			 <div class="content content2">
+			 	  <img class="img" src="img/qrcode.gif" alt="" />
+			 	  <div class="btn" onclick="maskHide()"></div>
+			 </div>
+		</div>
+</div>
+<script src="./static/layui/layui.js"></script>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/comment.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="js/article.js" charset="utf-8" type="text/javascript"></script>
+
+</body>
+</html>

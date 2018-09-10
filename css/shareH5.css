@@ -1,0 +1,17 @@
+html, body { position: relative; font-size: 14px; background: url(../img/shareBg.png) repeat-y center center; background-size: 100% auto; }
+
+#main { padding: 0.2rem 0; display: flex; display: -webkit-flex; flex-direction: column; justify-content: space-between; align-items: center; }
+#main .swiper-container { height: 0.32rem; background: rgba(0, 0, 0, 0.3); border-radius: 100px; overflow: hidden; }
+#main .swiper-container .swiper-wrapper { height: 0.32rem; }
+#main .swiper-container .swiper-wrapper .notice { height: 0.32rem; display: flex; display: -webkit-flex; flex-direction: row; justify-content: space-between; align-items: center; padding: 0 0.1rem; font-size: 0.12rem; color: white; }
+#main .swiper-container .swiper-wrapper .notice .user { display: flex; display: -webkit-flex; flex-direction: row; width: 0.225rem; height: 0.225rem; border-radius: 100px; overflow: hidden; }
+#main .swiper-container .swiper-wrapper .notice .user img { display: block; width: 100%; }
+#main .swiper-container .swiper-wrapper .notice .userName { white-space: nowrap; }
+#main .swiper-container .swiper-wrapper .notice .userName, #main .swiper-container .swiper-wrapper .notice .getMoney { margin: 0 0.05rem; }
+#main .shareTit { flex-shrink: 1; margin: 0 auto; }
+#main .shareTit img { display: block; width: 2.29rem; }
+#main .openPacket { flex-shrink: 1; width: 3.15rem; height: 1.87rem; padding-top: 1.67rem; background: url(../img/shareRedPacket.png) repeat-y center center; background-size: 100% auto; }
+#main .openPacket .prompt { font-size: 0.2rem; line-height: 0.36rem; color: white; text-align: center; }
+#main .openPacket #dlApp{ display: block; width: 1.88rem; height: 0.48rem; margin: 0.35rem auto 0; border: none; outline-style: none; background: url(../img/shareBtn.png) repeat-y center center; background-size: 100% auto; }
+.mask{display:none;position:fixed;left:0;top:0;width:100%;height:100%;padding:0.3rem;flex-direction:column;justify-content:center;align-items:center;background:rgba(0,0,0,0.7);box-sizing:border-box}.mask img{display:block;float:right;width:1.5rem}
+/*# sourceMappingURL=shareH5.css.map */
