@@ -40,27 +40,37 @@ layui.use(['layer', 'element'], function () {
 	});
 	//侧边链接
 	function sideLink(type) {
-		axios({
-			url: '/list/banner/pc',
-			method: 'get', // 默认是 get9			  
-			baseURL: TJY.baseUrl(2)
-		}).then(function (res) {
-			var data = res.data.data;
-			console.log("侧边链接", data);
-			var html = "";
-			data.map(function (item, index) {
-				html += '\n\t\t\t\t\t\t<div class="r r1"><img src="' + item.imgUrl + '" alt="" /></div>\n\t\t\t\t\t';
-			});
-			$(".right").html(html);
-			$(".r").on("click", function () {
-				$("#mask").show();
-				$(".content").addClass("maskAni");
-				$(".content1").hide();
-				$(".content2").show();
-			});
-		}).catch(function (error) {
-			console.log(error);
+		$(".r").on("click", function () {
+			$("#mask").show();
+			$(".content").addClass("maskAni");
+			$(".content1").hide();
+			$(".content2").show();
 		});
+		//		axios({
+		//				url: '/list/banner/pc',
+		//				method: 'get', // 默认是 get9			  
+		//				baseURL: TJY.baseUrl(2),
+		//			})
+		//			.then(function(res) {
+		//				const data = res.data.data;
+		//				console.log("侧边链接", data);
+		//				let html = "";
+		//				data.map(function(item, index) {
+		//					html += `
+		//						<div class="r r1"><img src="${item.imgUrl}" alt="" /></div>
+		//					`;
+		//				});
+		//				$(".right").html(html);
+		//				$(".r").on("click", function() {
+		//					$("#mask").show();
+		//					$(".content").addClass("maskAni");
+		//					$(".content1").hide();
+		//					$(".content2").show();
+		//				})
+		//			})
+		//			.catch(function(error) {
+		//				console.log(error);
+		//			});
 	}
 	/**
   * 相关推荐

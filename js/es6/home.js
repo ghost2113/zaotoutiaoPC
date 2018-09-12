@@ -233,31 +233,67 @@ layui.use(['layer', 'element', 'carousel'], function() {
 	}
 	//侧边链接
 	function sideLink(type) {
-		axios({
-				url: '/list/banner/pc',
-				method: 'get', // 默认是 get9			  
-				baseURL: TJY.baseUrl(2),
-			})
-			.then(function(res) {
-				const data = res.data.data;
-				console.log("侧边链接", data);
+		$(".r").on("click", function() {
+			$("#mask").show();
+			$(".content").addClass("maskAni");
+			$(".content1").hide();
+			$(".content2").show();
+		});
+		$(".rank").on("click", function() {
+			$("#mask").show();
+			$(".content").addClass("maskAni");
+			$(".content1").hide();
+			$(".content2").show();
+		});
+
+		$.ajax({
+			type: "GET",
+			url: TJY.baseUrl(2) + "/investment/task/list?pageNo=1&userId=2",
+			dataType: 'json',
+			success: function(res) {
+				const data = res.data;
+				console.log(data);
 				let html = "";
-				data.map(function(item, index) {
+				$.each(data, function(i, item) {
 					html += `
-				<div class="r r1"><img src="${item.imgUrl}" alt="" /></div>
-			`;
+						<div class="item">
+							<div class="logo"><img src="${item.logoUrl}" alt="" /></div>
+							<div class="name">${item.taskName}</div>
+							<div class="gold">${item.rebateAmount}元奖励</div>
+						</div>
+					`;
 				});
-				$(".right").html(html);
-				$(".r").on("click", function() {
-					$("#mask").show();
-					$(".content").addClass("maskAni");
-					$(".content1").hide();
-					$(".content2").show();
-				})
-			})
-			.catch(function(error) {
+				$(".rank").html(html);				
+			},
+			error: function(error) {
 				console.log(error);
-			});
+			}
+		});
+//		axios({
+//				url: '/list/banner/pc',
+//				method: 'get', // 默认是 get9			  
+//				baseURL: TJY.baseUrl(2),
+//			})
+//			.then(function(res) {
+//				const data = res.data.data;
+//				console.log("侧边链接", data);
+//				let html = "";
+//				data.map(function(item, index) {
+//					html += `
+//				<div class="r r1"><img src="${item.imgUrl}" alt="" /></div>
+//			`;
+//				});
+//				$(".right").html(html);
+//				$(".r").on("click", function() {
+//					$("#mask").show();
+//					$(".content").addClass("maskAni");
+//					$(".content1").hide();
+//					$(".content2").show();
+//				})
+//			})
+//			.catch(function(error) {
+//				console.log(error);
+//			});
 	}
 	//banner轮播(热门推荐)
 	function banner(isShow) {
@@ -282,7 +318,10 @@ layui.use(['layer', 'element', 'carousel'], function() {
 			  		</div>
 				`;
 					});
-					$("#bannerC").html(html);
+					$("#bannerC").html(`<div>
+			  			<a href="#" style="background-image:url(./img/banner.jpg)">
+			  			</a>
+			  		</div>`+html);
 					carousel.render({
 						elem: '#banner',
 						width: '100%' //设置容器宽度

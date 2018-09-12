@@ -267,14 +267,18 @@ layui.use(['layer', 'element', 'carousel'], function() {
 						var imgUrl = RegExp(/webp/g).test(item.imgUrl) ? item.imgUrl.replace('webp', 'jpg') : item.imgUrl;
 						html += `
 							<div>
-					  			<a href="./article.html?${encodeURI(item.url)}&channelName=${encodeURI(channelName)}" target="_blank" style="background-image:url(${imgUrl})">
-					  			
+					  			<a href="./article.html?${encodeURI(item.url)}&channelName=${encodeURI(channelName)}" target="_blank" >
+					  				<img src="${imgUrl}" alt="">
 						  			<p class="page1">${item.title}</p>
 					  			</a>
 					  		</div>
 						`;
 					});
-					$("#bannerC").html(html);
+					$("#bannerC").html(`<div>
+			  			<a href="#">
+			  				<img src="./img/banner.jpg" alt="">
+			  			</a>
+			  		</div>`+html);
 					carousel.render({
 						elem: '#banner',
 						width: '100%' //设置容器宽度
@@ -302,56 +306,87 @@ layui.use(['layer', 'element', 'carousel'], function() {
 	/**
 	 * 侧边链接
 	 */
+
 	function sideLink(type) {
+		$(".r").on("click", function() {
+			$("#mask").show();
+			$(".content").addClass("maskAni");
+			$(".content1").hide();
+			$(".content2").show();
+		});
+		$(".rank").on("click", function() {
+			$("#mask").show();
+			$(".content").addClass("maskAni");
+			$(".content1").hide();
+			$(".content2").show();
+		});
+
 		$.ajax({
 			type: "GET",
-			url: TJY.baseUrl(2) + "/list/banner/pc",
+			url: TJY.baseUrl(2) + "/investment/task/list?pageNo=1&userId=2",
 			dataType: 'json',
 			success: function(res) {
 				const data = res.data;
-				//console.log("侧边链接", data);
+				console.log(data);
 				let html = "";
-				$.each(data, function(index, item) {
+				$.each(data, function(i, item) {
 					html += `
-						<div class="r r1"><img src="${item.imgUrl}" alt="" /></div>
+						<div class="item">
+							<div class="logo"><img src="${item.logoUrl}" alt="" /></div>
+							<div class="name">${item.taskName}</div>
+							<div class="gold">${item.rebateAmount}元奖励</div>
+						</div>
 					`;
 				});
-				$(".fixR").prepend(html);
-				$(".r").on("click", function() {
-					$("#mask").show();
-					$(".content").addClass("maskAni");
-					$(".content1").hide();
-					$(".content2").show();
-				});
+				$(".rank").html(html);				
 			},
 			error: function(error) {
 				console.log(error);
 			}
 		});
-		$.ajax({
-				type: "GET",
-				url: TJY.baseUrl(2) + "/getHotToday",
-				dataType: 'json',
-				data:{
-					pageSize:2,
-					random: Math.floor(Math.random() * (1000 + 1))
-				},
-				success: function(res) {
-					console.log("res",res);
-					const data = res.rightList;
-					//console.log("侧边链接", data);
-					let html = "";
-					$.each(data, function(index, item) {						
-						html += `
-							<li><a href="./article.html?${encodeURI(item.url)}&channelName=${encodeURI("推荐")}" target="_blank"><span class="red">${index+1}</span>${item.title}</a></li>
-						`;
-					});
-					$(".rank_newsList").html(html);					
-				},
-				error: function(error) {
-					console.log(error);
-				}
-		})	
+//		$.ajax({
+//			type: "GET",
+//			url: TJY.baseUrl(2) + "/list/banner/pc",
+//			dataType: 'json',
+//			success: function(res) {
+//				const data = res.data;
+//				//console.log("侧边链接", data);
+//				let html = "";
+//				$.each(data, function(index, item) {
+//					html += `
+//						<div class="r r1"><img src="${item.imgUrl}" alt="" /></div>
+//					`;
+//				});
+//				$(".fixR").prepend(html);				
+//			},
+//			error: function(error) {
+//				console.log(error);
+//			}
+//		});
+//		$.ajax({
+//				type: "GET",
+//				url: TJY.baseUrl(2) + "/getHotToday",
+//				dataType: 'json',
+//				data:{
+//					pageSize:2,
+//					random: Math.floor(Math.random() * (1000 + 1))
+//				},
+//				success: function(res) {
+//					console.log("res",res);
+//					const data = res.rightList;
+//					//console.log("侧边链接", data);
+//					let html = "";
+//					$.each(data, function(index, item) {						
+//						html += `
+//							<li><a href="./article.html?${encodeURI(item.url)}&channelName=${encodeURI("推荐")}" target="_blank"><span class="red">${index+1}</span>${item.title}</a></li>
+//						`;
+//					});
+//					$(".rank_newsList").html(html);					
+//				},
+//				error: function(error) {
+//					console.log(error);
+//				}
+//		})	
 	}
 	/**
 	 * 热门排行

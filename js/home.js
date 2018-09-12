@@ -201,27 +201,61 @@ layui.use(['layer', 'element', 'carousel'], function () {
 	}
 	//侧边链接
 	function sideLink(type) {
-		axios({
-			url: '/list/banner/pc',
-			method: 'get', // 默认是 get9			  
-			baseURL: TJY.baseUrl(2)
-		}).then(function (res) {
-			var data = res.data.data;
-			console.log("侧边链接", data);
-			var html = "";
-			data.map(function (item, index) {
-				html += '\n\t\t\t\t<div class="r r1"><img src="' + item.imgUrl + '" alt="" /></div>\n\t\t\t';
-			});
-			$(".right").html(html);
-			$(".r").on("click", function () {
-				$("#mask").show();
-				$(".content").addClass("maskAni");
-				$(".content1").hide();
-				$(".content2").show();
-			});
-		}).catch(function (error) {
-			console.log(error);
+		$(".r").on("click", function () {
+			$("#mask").show();
+			$(".content").addClass("maskAni");
+			$(".content1").hide();
+			$(".content2").show();
 		});
+		$(".rank").on("click", function () {
+			$("#mask").show();
+			$(".content").addClass("maskAni");
+			$(".content1").hide();
+			$(".content2").show();
+		});
+
+		$.ajax({
+			type: "GET",
+			url: TJY.baseUrl(2) + "/investment/task/list?pageNo=1&userId=2",
+			dataType: 'json',
+			success: function success(res) {
+				var data = res.data;
+				console.log(data);
+				var html = "";
+				$.each(data, function (i, item) {
+					html += '\n\t\t\t\t\t\t<div class="item">\n\t\t\t\t\t\t\t<div class="logo"><img src="' + item.logoUrl + '" alt="" /></div>\n\t\t\t\t\t\t\t<div class="name">' + item.taskName + '</div>\n\t\t\t\t\t\t\t<div class="gold">' + item.rebateAmount + '\u5143\u5956\u52B1</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t';
+				});
+				$(".rank").html(html);
+			},
+			error: function error(_error) {
+				console.log(_error);
+			}
+		});
+		//		axios({
+		//				url: '/list/banner/pc',
+		//				method: 'get', // 默认是 get9			  
+		//				baseURL: TJY.baseUrl(2),
+		//			})
+		//			.then(function(res) {
+		//				const data = res.data.data;
+		//				console.log("侧边链接", data);
+		//				let html = "";
+		//				data.map(function(item, index) {
+		//					html += `
+		//				<div class="r r1"><img src="${item.imgUrl}" alt="" /></div>
+		//			`;
+		//				});
+		//				$(".right").html(html);
+		//				$(".r").on("click", function() {
+		//					$("#mask").show();
+		//					$(".content").addClass("maskAni");
+		//					$(".content1").hide();
+		//					$(".content2").show();
+		//				})
+		//			})
+		//			.catch(function(error) {
+		//				console.log(error);
+		//			});
 	}
 	//banner轮播(热门推荐)
 	function banner(isShow) {
@@ -238,7 +272,7 @@ layui.use(['layer', 'element', 'carousel'], function () {
 				data.map(function (item, index) {
 					html += '\n\t\t\t\t\t<div>\n\t\t\t  \t\t\t<a href="./article.html?' + item.url + '&channelName=' + escape(channelName) + '" target="_blank" style="background-image:url(' + item.imgUrl + ')">\n\t\t\t\t  \t\t\t<div style="height:250px;"></div>\n\t\t\t\t  \t\t\t<p class="page1">' + item.title + '</p>\n\t\t\t  \t\t\t</a>\n\t\t\t  \t\t</div>\n\t\t\t\t';
 				});
-				$("#bannerC").html(html);
+				$("#bannerC").html('<div>\n\t\t\t  \t\t\t<a href="#" style="background-image:url(./img/banner.jpg)">\n\t\t\t  \t\t\t</a>\n\t\t\t  \t\t</div>' + html);
 				carousel.render({
 					elem: '#banner',
 					width: '100%' //设置容器宽度

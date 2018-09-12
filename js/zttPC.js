@@ -221,9 +221,9 @@ layui.use(['layer', 'element', 'carousel'], function () {
 					var html = "";
 					$.each(data, function (index, item) {
 						var imgUrl = RegExp(/webp/g).test(item.imgUrl) ? item.imgUrl.replace('webp', 'jpg') : item.imgUrl;
-						html += '\n\t\t\t\t\t\t\t<div>\n\t\t\t\t\t  \t\t\t<a href="./article.html?' + encodeURI(item.url) + '&channelName=' + encodeURI(channelName) + '" target="_blank" style="background-image:url(' + imgUrl + ');\n\t\t\t\tbackground-size:100% 100%;\n                background: none9;\n                /*\u4E0B\u4E00\u884C\u4E3A\u5173\u952E\u8BBE\u7F6E*/\n                filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=\'' + imgUrl + '\', sizingMethod=\'scale\');">\n\t\t\t\t\t  \t\t\t\n\t\t\t\t\t\t  \t\t\t<p class="page1">' + item.title + '</p>\n\t\t\t\t\t  \t\t\t</a>\n\t\t\t\t\t  \t\t</div>\n\t\t\t\t\t\t';
+						html += '\n\t\t\t\t\t\t\t<div>\n\t\t\t\t\t  \t\t\t<a href="./article.html?' + encodeURI(item.url) + '&channelName=' + encodeURI(channelName) + '" target="_blank">\n\t\t\t\t\t  \t\t\t\t<img src="' + imgUrl + '" alt="">\n\t\t\t\t\t\t  \t\t\t<p class="page1">' + item.title + '</p>\n\t\t\t\t\t  \t\t\t</a>\n\t\t\t\t\t  \t\t</div>\n\t\t\t\t\t\t';
 					});
-					$("#bannerC").html(html);
+					$("#bannerC").html('<div>\n\t\t\t  \t\t\t<a href="#">\n\t\t\t  \t\t\t\t<img src="./img/banner.jpg" alt="">\n\t\t\t  \t\t\t</a>\n\t\t\t  \t\t</div>' + html);
 					carousel.render({
 						elem: '#banner',
 						width: '100%' //设置容器宽度
@@ -251,51 +251,85 @@ layui.use(['layer', 'element', 'carousel'], function () {
   * 侧边链接
   */
 	function sideLink(type) {
+		$(".r").on("click", function () {
+			$("#mask").show();
+			$(".content").addClass("maskAni");
+			$(".content1").hide();
+			$(".content2").show();
+		});
+		$(".rank").on("click", function () {
+			$("#mask").show();
+			$(".content").addClass("maskAni");
+			$(".content1").hide();
+			$(".content2").show();
+		});
+
 		$.ajax({
 			type: "GET",
-			url: TJY.baseUrl(2) + "/list/banner/pc",
+			url: TJY.baseUrl(2) + "/investment/task/list?pageNo=1&userId=2",
 			dataType: 'json',
 			success: function success(res) {
 				var data = res.data;
-				//console.log("侧边链接", data);
+				console.log(data);
 				var html = "";
-				$.each(data, function (index, item) {
-					html += '\n\t\t\t\t\t\t<div class="r r1"><img src="' + item.imgUrl + '" alt="" /></div>\n\t\t\t\t\t';
+				$.each(data, function (i, item) {
+					html += '\n\t\t\t\t\t\t<div class="item">\n\t\t\t\t\t\t\t<div class="logo"><img src="' + item.logoUrl + '" alt="" /></div>\n\t\t\t\t\t\t\t<div class="name">' + item.taskName + '</div>\n\t\t\t\t\t\t\t<div class="gold">' + item.rebateAmount + '\u5143\u5956\u52B1</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t';
 				});
-				$(".fixR").prepend(html);
-				$(".r").on("click", function () {
-					$("#mask").show();
-					$(".content").addClass("maskAni");
-					$(".content1").hide();
-					$(".content2").show();
-				});
+				$(".rank").html(html);
 			},
 			error: function error(_error3) {
 				console.log(_error3);
 			}
 		});
-		$.ajax({
-			type: "GET",
-			url: TJY.baseUrl(2) + "/getHotToday",
-			dataType: 'json',
-			data: {
-				pageSize: 9,
-				random: Math.floor(Math.random() * (1000 + 1))
-			},
-			success: function success(res) {
-				//console.log("res",res);
-				var data = res.rightList;
-				//console.log("侧边链接", data);
-				var html = "";
-				$.each(data, function (index, item) {
-					html += '\n\t\t\t\t\t\t\t<li><a href="./article.html?' + encodeURI(item.url) + '&channelName=' + encodeURI("推荐") + '" target="_blank"><span class="red">' + (index + 1) + '</span>' + item.title + '</a></li>\n\t\t\t\t\t\t';
-				});
-				$(".rank_newsList").html(html);
-			},
-			error: function error(_error4) {
-				console.log(_error4);
-			}
-		});
+		//		$.ajax({
+		//			type: "GET",
+		//			url: TJY.baseUrl(2) + "/list/banner/pc",
+		//			dataType: 'json',
+		//			success: function(res) {
+		//				const data = res.data;
+		//				//console.log("侧边链接", data);
+		//				let html = "";
+		//				$.each(data, function(index, item) {
+		//					html += `
+		//						<div class="r r1"><img src="${item.imgUrl}" alt="" /></div>
+		//					`;
+		//				});
+		//				$(".fixR").prepend(html);
+		//				$(".r").on("click", function() {
+		//					$("#mask").show();
+		//					$(".content").addClass("maskAni");
+		//					$(".content1").hide();
+		//					$(".content2").show();
+		//				});
+		//			},
+		//			error: function(error) {
+		//				console.log(error);
+		//			}
+		//		});
+		//		$.ajax({
+		//				type: "GET",
+		//				url: TJY.baseUrl(2) + "/getHotToday",
+		//				dataType: 'json',
+		//				data:{
+		//					pageSize:9,
+		//					random: Math.floor(Math.random() * (1000 + 1))
+		//				},
+		//				success: function(res) {
+		//					//console.log("res",res);
+		//					const data = res.rightList;
+		//					//console.log("侧边链接", data);
+		//					let html = "";
+		//					$.each(data, function(index, item) {	
+		//						html += `
+		//							<li><a href="./article.html?${encodeURI(item.url)}&channelName=${encodeURI("推荐")}" target="_blank"><span class="red">${index+1}</span>${item.title}</a></li>
+		//						`;
+		//					});
+		//					$(".rank_newsList").html(html);					
+		//				},
+		//				error: function(error) {
+		//					console.log(error);
+		//				}
+		//		})	
 	}
 	/**
   * 热门排行
