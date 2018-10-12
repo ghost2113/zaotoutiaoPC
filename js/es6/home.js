@@ -348,8 +348,8 @@ layui.use(['layer', 'element', 'carousel'], function() {
 		$.ajax({
 			type: "GET",
 			url: TJY.baseUrl(2) + "/information/list/test",
-			dataType: 'json',
-			cache: false,
+			
+			
 			data: {
 				c: channelId,
 				device: 2,
